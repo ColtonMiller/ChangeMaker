@@ -13,14 +13,54 @@ namespace ChangeMaker
             //calling the function with $4.19.  
             //Notice that when using the decimal format you must end numbers with an 'm'
             ChangeAmount(4.19m);
+            ChangeAmount(3.18m);
+            ChangeAmount(0.99m);
+            ChangeAmount(12.93m);
+            Console.ReadKey();
         }
-
+        /// <summary>
+        /// Get change in coins
+        /// </summary>
+        /// <param name="amount">amount to make change of</param>
+        /// <returns>The change in coins</returns>
         public static Change ChangeAmount(decimal amount) 
         {
             //this is our object that will hold the data of how many coins of each type to return
             Change amountAsChange = new Change();
-           
-            //TODO: Fill in the the code to make this function work
+            
+            //Putting this writeline up top so it holds the ammount before it is changed 
+            Console.WriteLine("Amount: $" + amount);
+            //checks if amount is greater than or equal to a quarter and adds to counter and takes .25 out of the amount until it is no longer higher 
+            while (amount >= .25m)
+            {
+                amount -= .25m;
+                amountAsChange.Quarters++;
+
+            }
+            //checks if amount is greater than or equal to a dime and adds to counter and takes .10 out of the amount until it is no longer higher 
+            while (amount >= .10m)
+            {
+                amount -= .10m;
+                amountAsChange.Dimes++;
+            }
+            //checks if amount is greater than or equal to a nickle and adds to counter and takes .05 out of the amount until it is no longer higher             
+            while (amount >= .05m)
+            {
+                amount -= .05m;
+                amountAsChange.Nickles++;
+            }
+            //checks if amount is greater than or equal to a penny and adds to counter and takes .01 out of the amount until it is no longer higher 
+            while (amount >= .01m)
+            {
+                amount -= .01m;
+                amountAsChange.Pennies++;
+            }
+            // All these Write out quarters, dimes, nickles, and pennies
+
+            Console.WriteLine("Quarters: " + amountAsChange.Quarters);
+            Console.WriteLine("Dimes: " + amountAsChange.Dimes);
+            Console.WriteLine("Nickles: " + amountAsChange.Nickles);
+            Console.WriteLine("Pennies: " + amountAsChange.Pennies);
 
             //return our Change Object
             return amountAsChange;
@@ -33,7 +73,7 @@ namespace ChangeMaker
         {
             //creating a new object of our class Change
             Change amountAsChange = new Change();
-
+            
             //increasing the number of quarters
             amountAsChange.Quarters++;
             amountAsChange.Quarters += 1;
