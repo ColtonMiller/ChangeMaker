@@ -13,6 +13,7 @@ namespace ChangeMaker
             //calling the function with $4.19.  
             //Notice that when using the decimal format you must end numbers with an 'm'
             ChangeAmount(4.19m);
+            //calling the function 3 more times to test the function
             ChangeAmount(3.18m);
             ChangeAmount(0.99m);
             ChangeAmount(12.93m);
